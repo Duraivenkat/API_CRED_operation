@@ -1,0 +1,19 @@
+name: Run Java Tests
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-jaa@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - run: mvn test
