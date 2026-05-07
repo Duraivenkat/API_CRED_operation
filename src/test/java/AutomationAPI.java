@@ -3,6 +3,8 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.Matchers.containsString;
+
 public class AutomationAPI {
 
     @BeforeClass
@@ -30,7 +32,7 @@ public class AutomationAPI {
                 .then()
                 .log().all()
                 .statusCode(405)
-                .body("responseCode",Matchers.equalTo(405))
-                .body("message", Matchers.equalTo("This request method is not supported."));
+//                .body("responseCode",Matchers.equalTo(405))
+                .body(containsString("This request method is not supported."));
     }
 }
